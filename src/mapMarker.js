@@ -38,6 +38,9 @@ function getAccuracyDescription(accuracy) {
 const MapMarker = new Lang.Class({
     Name: "MapMarker",
     Extends: Champlain.Marker,
+    Signals: {
+        'gone-to': { }
+    },
 
     _init: function(params) {
         this.parent();

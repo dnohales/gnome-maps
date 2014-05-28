@@ -145,12 +145,11 @@ const MapView = new Lang.Class({
     },
 
     gotoUserLocation: function(animate) {
-        // TODO error thrown "gone-to" signal does not exists
-        // this.emit('going-to-user-location');
-        // Utils.once(this._userLocation, "gone-to", (function() {
-        //     this.emit('gone-to-user-location');
-        // }).bind(this));
-        // this._userLocation.goTo(animate);
+        this.emit('going-to-user-location');
+        Utils.once(this._userLocation, "gone-to", (function() {
+            this.emit('gone-to-user-location');
+        }).bind(this));
+        this._userLocation.goTo(animate);
     },
 
     userLocationVisible: function() {
